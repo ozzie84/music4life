@@ -42,7 +42,7 @@
       disableOnInteraction: false
     },
     breakpoints: {
-      992: {
+      991: {
         slidesPerView: 2.5,
         spaceBetween: 20
       }
