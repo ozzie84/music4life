@@ -4,10 +4,10 @@
   $(document).ready(function () {
     svg4everybody({});
   }); // Nav pages global
-  // $('.menu_click').on('click', function () {
-  //   $('.menu_wrap').toggleClass('menu_wrap_active');
-  // });
-  // Main Tab
+
+  $('.menu_click').on('click', function () {
+    $('.menu_wrap').toggleClass('menu_wrap_active');
+  }); // Main Tab
 
   $(document).on('click', '.tools_btn__this', function (event) {
     event.preventDefault();
@@ -42,14 +42,51 @@
       disableOnInteraction: false
     },
     breakpoints: {
-      991: {
+      992: {
         slidesPerView: 2.5,
         spaceBetween: 20
       }
     }
   });
+  var myBenefits = new Swiper('.benefits_wrap .swiper-container', {
+    speed: 900,
+    loop: true,
+    spaceBetween: 40,
+    grabCursor: false,
+    pagination: {
+      clickable: true,
+      el: '.swiper-pagination'
+    },
+    navigation: {
+      nextEl: '.btn_nexting',
+      prevEl: '.btn_preving'
+    }
+  }); // Header Menu Click
+
   $(document).on('click', '.header_burger__this', function (event) {
     event.preventDefault();
     $('.header_menu').toggleClass('menu_active');
+  }); // Modal video
+
+  $(document).on('click', '.video_img__link', function (event) {
+    event.preventDefault();
+    var dataVideo = $(this).attr('data-video');
+    var dataTitle = $(this).attr('data-title');
+    $('#modal_video').iziModal({
+      headerColor: '#9A6CA6',
+      background: '#9A6CA6',
+      iframe: true,
+      iframeURL: dataVideo,
+      iframeHeight: 600,
+      width: 800,
+      title: dataTitle,
+      fullscreen: true,
+      closeOnEscape: true,
+      closeButton: true,
+      overlayColor: 'rgba(0, 0, 0, 0.9)',
+      onClosed: function onClosed() {
+        $('#modal_video').iziModal('destroy');
+      }
+    });
   });
 })(jQuery);
