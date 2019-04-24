@@ -22,7 +22,7 @@
   var myReviews = new Swiper('.testimonials_wrap .swiper-container', {
     speed: 900,
     loop: true,
-    spaceBetween: 0,
+    spaceBetween: 40,
     grabCursor: true,
     navigation: {
       nextEl: '.btn_next',
@@ -36,6 +36,20 @@
     loop: true,
     centeredSlides: true,
     slidesPerView: 6,
-    loopedSlides: 6
+    loopedSlides: 6,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    breakpoints: {
+      992: {
+        slidesPerView: 2.5,
+        spaceBetween: 20
+      }
+    }
+  });
+  $(document).on('click', '.header_burger__this', function (event) {
+    event.preventDefault();
+    $('.header_menu').toggleClass('menu_active');
   });
 })(jQuery);
