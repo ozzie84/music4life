@@ -9,7 +9,7 @@
     $('.menu_wrap').toggleClass('menu_wrap_active');
   }); // Main Tab
 
-  $(document).on('click', '.tools_btn__this', function (event) {
+  $(document).on('click', '.tools_btn__this, .testimonials_tags_wrap .tools_btn .btn_global', function (event) {
     event.preventDefault();
     var self = $(this);
     var id = $(this).attr('name');
@@ -68,7 +68,7 @@
     $('.header_menu').toggleClass('menu_active');
   }); // Modal video
 
-  $(document).on('click', '.video_img__link', function (event) {
+  $(document).on('click', '.video_img__link, .tools_box_video', function (event) {
     event.preventDefault();
     var dataVideo = $(this).attr('data-video');
     var dataTitle = $(this).attr('data-title');
