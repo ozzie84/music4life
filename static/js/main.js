@@ -9,7 +9,7 @@
     $('.menu_wrap').toggleClass('menu_wrap_active');
   }); // Main Tab
 
-  $(document).on('click', '.tools_btn__this, .testimonials_tags_wrap .tools_btn .btn_global', function (event) {
+  $(document).on('click', '.testimonials_tags_wrap .tools_btn .btn_global', function (event) {
     event.preventDefault();
     var self = $(this);
     var id = $(this).attr('name');
@@ -17,6 +17,27 @@
     $('.tools_content .tools_box').fadeOut(0);
     self.addClass('tools_active');
     $('.tools_content').find('#' + id).fadeIn(200);
+  }); // Main Tab index
+
+  $(document).on('click', '.tools_btn__this', function (event) {
+    event.preventDefault();
+    var id = $(this).attr('name');
+    $('.tools_content .tools_box').fadeOut(0);
+    $('.tools_content').find('#' + id).fadeIn(200);
+  });
+  $(document).on('click', 'button[name=tools]', function (event) {
+    event.preventDefault();
+    var self = $(this);
+    self.parents().find('.tools_active_right').removeClass('tools_active_right');
+    self.parents().find('.tools_active').addClass('tools_active_left');
+    $(this).next().addClass('color_fix');
+  });
+  $(document).on('click', 'button[name=services]', function (event) {
+    event.preventDefault();
+    var self = $(this);
+    self.parents().find('.tools_active_left').removeClass('tools_active_left');
+    self.parents().find('.tools_active').addClass('tools_active_right');
+    $(this).removeClass('color_fix');
   }); // Main Swiper
 
   var myReviews = new Swiper('.testimonials_wrap .swiper-container', {
